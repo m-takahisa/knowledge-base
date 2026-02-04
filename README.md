@@ -5,7 +5,7 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 ## 📌 目次
 ### Java
 - [Java 8 to 17/21 差異まとめ](./java/java8-to-21-differences.md)
-- [エンティティの作成](./java/java8-to-21-differences.md)
+- [エンティティの作成](./java/create-entity.md)
 - CRUD（状態遷移管理）
   - [登録](./java/crud/create.md)
   - [読み取り](./java/crud/read.md)
