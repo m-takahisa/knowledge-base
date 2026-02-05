@@ -4,7 +4,7 @@ Entity（エンティティ）の作成は、Javaのオブジェクトとデー�
 - `@Column(nullable = false)`: DB側でもNOT NULL制約をかけることで、データの整合性を担保。
 - `LocalDate`/`LocalDateTime`: 古い Date クラスではなく、Java 8以降のモダンな日時APIを使用。
 - `@PrePersist` / `@PreUpdate`: 「いつ作られたか」をプログラム側で自動管理する仕組み。
-- `import lombok.Data;`: 「Lombok（ロンボック）」という外部ライブラリの機能。（- [Lombok](./java/Lombok.md)）
+- `import lombok.Data;`: 「Lombok（ロンボック）」という外部ライブラリの機能。（[Lombok詳細](./java/Lombok.md)）
 ## 実装例
 ```Java
 package com.m_takahisa.taskapp.entity;
