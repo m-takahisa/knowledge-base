@@ -5,6 +5,7 @@ Entity（エンティティ）の作成は、Javaのオブジェクトとデー�
 - `LocalDate`/`LocalDateTime`: 古い Date クラスではなく、Java 8以降のモダンな日時APIを使用。
 - `@PrePersist` / `@PreUpdate`: 「いつ作られたか」をプログラム側で自動管理する仕組み。
 - `import lombok.Data;`: 「Lombok（ロンボック）」という外部ライブラリの機能。（[Lombok詳細](./java/Lombok.md)）
+- `@ManyToOne`: リレーション設定。（[JPA リレーション設定について](./java/entity/jpa-relationships.md)）
 ## 実装例
 ```Java
 package com.m_takahisa.taskapp.entity;
@@ -46,12 +47,13 @@ public class Task {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    // 作成時の処理
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
-
+    // 更新時の処理
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
