@@ -21,9 +21,19 @@ private UserProfile profile;
 ```
 - @OneToMany (1対多)
 ```java
-@OneToMany(mappedBy = "user") // 相手側（Post等）のフィールド名を指定
+@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 private List<Post> posts;
 ```
+| 引数 | 挙動 | 主な用途 |
+| :--- | :--- | :--- |
+| **mappedBy** | 双方向の「親」であることを示す | ほぼすべての双方向 `@OneToMany` |
+| **cascade = ALL** | 保存も削除も親に任せる | 注文(親)と注文明細(子)のような強い親子関係 |
+| **orphanRemoval = true** | リストから消したらDBからも消す | 持ち主が変わることがないデータ（プロフィール画像など） |
+
+**⚠️ 実務のアドバイス**:
+強い親子関係（親がいなければ子が存在できない関係）には、この3点セットを全部付けるのが一般的。  
+逆に、ユーザーと部署の関係のように「ユーザーが部署から外れても、部署自体は消えてほしくない」場合は、`cascade` や `orphanRemoval` は慎重に設定。  
+
 - @ManyToOne (多対1)
 ```java
 @ManyToOne(fetch = FetchType.LAZY)
@@ -40,7 +50,24 @@ private User user;
 )
 private List<Course> courses;
 ```
+## JPA：単方向リレーション vs 双方向リレーション
 
+| 比較項目 | 単方向 (Unidirectional) | 双方向 (Bidirectional) |
+| :--- | :--- | :--- |
+| **定義** | 一方のエンティティからのみ相手を参照できる | 両方のエンティティから互いを参照できる |
+| **アノテーション** | `@ManyToOne` のみ（子側に記述） | `@ManyToOne` (子) ＋ `@OneToMany` (親) |
+| **Javaでの操作** | `post.getUser()` は可能 | `post.getUser()` も `user.getPosts()` も可能 |
+| **DB構造** | 子テーブルに外部キー(FK)ができる | **単方向と同じ**（子側にFKができる） |
+| **コードの複雑さ** | シンプル（管理が楽） | 複雑（整合性を保つコードが必要） |
+| **主なリスク** | 特になし | **循環参照(無限ループ)**、N+1問題 |
+
+### 実務での推奨
+- **原則は「単方向」**: 
+  「ユーザーから投稿一覧を辿る」必要がないなら、単方向で設計するのが最も安全です。
+- **必要に応じて「双方向」**: 
+  画面表示の都合上、親から子を一気に取得したい場合のみ双方向に拡張します。  
+  ⚠️ 双方向の鉄則 双方向にする場合は、絶対に Lombokの `@Data` を使わない こと。(`StackOverflowError` が発生するため。)  
+  
 ## 「LAZY（遅延読み込み）」vs 「EAGER（即時読み込み）」
 | 方式 | 挙動 | メリット | デメリット |
 | :--- | :--- | :--- | :--- |
