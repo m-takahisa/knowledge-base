@@ -17,6 +17,9 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 ### Spring
 - [SpringとSpring Bootの違い](./spring/spring-vs-boot.md)
 - [JavaとSpring機能の切り分け](./spring/annotation-map.md)
+- Spring Data JPA
+  - [@Query](./java/spring/Spring-Data-JPA/@Query.md)
+  - [@Modifying](./java/spring/Spring-Data-JPA/@Modifying.md)
 ### API
 - [API設計ルール](./api/design-rules.md)
 ### DB
