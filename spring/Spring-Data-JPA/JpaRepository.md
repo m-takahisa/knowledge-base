@@ -35,7 +35,7 @@ Repository 内にメソッドを宣言するだけで、Spring が名前を解�
 
 # JpaRepository 運用のコツ
 
-1. **複雑なクエリは @Query を使う**: [@Query詳細](./java/java8-to-21-differences.md)
+1. **複雑なクエリは @Query を使う**: [@Query詳細](./java/spring/Spring-Data-JPA/@Query.md)
    メソッド名が長くなりすぎる（例：`findByNameAndEmailAndStatusOrderByCreatedAtDesc`）場合は、無理に命名ルールに従わず、JPQL を直接書くほうが可読性が高いです。
 2. **デフォルトの save メソッド**:
    `save()` は「IDがなければ INSERT」「IDがあれば UPDATE」を自動で判定します。
