@@ -8,6 +8,8 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 - エンティティ
   - [エンティティの作成](./java/create-entity.md)
   - [JPA リレーション設定について](./java/entity/jpa-relationships.md)
+- リポジトリ
+  - [Repository の作成](./java/repository.md)
 - [Lombokについて](./java/Lombok.md)
 - CRUD（状態遷移管理）
   - [登録](./java/crud/create.md)
@@ -20,6 +22,7 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 - Spring Data JPA
   - [@Query](./java/spring/Spring-Data-JPA/@Query.md)
   - [@Modifying](./java/spring/Spring-Data-JPA/@Modifying.md)
+  - [メソッドクエリ生成](./java/spring/Spring-Data-JPA/QueryDerivation.md)
 ### API
 - [API設計ルール](./api/design-rules.md)
 ### DB
