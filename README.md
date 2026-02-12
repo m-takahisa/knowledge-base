@@ -3,6 +3,8 @@
 JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシート集です。
 
 ## 📌 目次
+### タスクアプリ
+- [使用アノテーションまとめ](./my-task-app/annotation-map.md)
 ### Java
 - [Java 8 to 17/21 差異まとめ](./java/java8-to-21-differences.md)
 - [Controller と Service の役割分担](./java/controller-service.md)
