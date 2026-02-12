@@ -19,6 +19,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 ```
 ### ポイント
 - JpaRepository<User, Long>の継承  
-  データベースへの保存・検索・削除の機能が使用可能
+  データベースへの保存・更新(`save(user)`)・検索(`findById(id)`)・全件取得(f`indAll()`)・削除(`deleteById(id)`)の機能が使用可能
 - findByEmailメソッド  
   Spring Data JPA の「[メソッドクエリ生成](./java/spring/Spring-Data-JPA/QueryDerivation.md)」という機能
