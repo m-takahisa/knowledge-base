@@ -10,7 +10,10 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
   - [JPA リレーション設定について](./java/entity/jpa-relationships.md)
 - リポジトリ
   - [Repository の作成](./java/repository.md)
-- [Lombokについて](./java/Lombok.md)
+- コントローラー
+  - [Controllerについて](./java/controller.md)
+- Lombok
+  - [Lombokについて](./java/Lombok.md)
 - CRUD（状態遷移管理）
   - [登録](./java/crud/create.md)
   - [読み取り](./java/crud/read.md)
