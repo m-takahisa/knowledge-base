@@ -5,6 +5,7 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 ## 📌 目次
 ### Java
 - [Java 8 to 17/21 差異まとめ](./java/java8-to-21-differences.md)
+- [Controller と Service の役割分担](./java/controller-service.md)
 - エンティティ
   - [エンティティの作成](./java/create-entity.md)
   - [JPA リレーション設定について](./java/entity/jpa-relationships.md)
