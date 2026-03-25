@@ -4,7 +4,7 @@ JavaやSpring Bootの「すぐ忘れる」を解決するためのチートシ�
 
 ## 📌 目次
 ### spring-learning
-- [学習ログ](./spring-learning.md)
+- [学習ログ](./spring-learning/log.md)
 ### タスクアプリ
 - [使用アノテーションまとめ](./my-task-app/annotation-map.md)
 ### Java
