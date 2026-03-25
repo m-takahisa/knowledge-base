@@ -32,5 +32,15 @@ Spring Boot 4.xは仮想スレッドの標準化とAI関連の強化
    - ymlにspring.profiles.active=jpで本番の道具を使用
 
 ## AOP（Aspect Oriented Programming：アスペクト指向プログラミング）
+- ログの設定を一か所でまとめて設定できて、処理を監視することでより安全に運用が可能
+- 特定のメソッドの実行時間を測って「遅い処理」の確認、メモリ消費量（ざっくり）の確認も可能
+### 準備
+1. 依存関係の確認(build.gradle)
+   - 未リリースで実験的なSpring Boot 4.0.4ではエラーになる。下記で解消。  
+      - Spring Boot 4.0.4 → 3.4.1, Gradleバージョン（9.4.0）→Gradleバージョン（8.10.2）  
+   - 文字化け。下記で解消。
+      - 実行/デバック構成＞VMオプションに`-Dfile.encoding=COMPAT`を設定。
+2. アスペクト（外付け処理）を作成
+
 ## 仮想スレッド
 ## Spring Data JPA とデータベース
