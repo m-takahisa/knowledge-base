@@ -13,13 +13,16 @@ user.register.email.already_exists=このメールアドレスは既に登録さ
 ```
 
 ■使い方
-- バックエンド (Back-end)：**""で囲む**
+- バックエンド (Back-end)：**messageSourceから呼び出す**
 ```
-  // 例外の種類に応じたメッセージキーを決定
-  String messageKey = "user.register.generic_error";
-  if (e instanceof UserException.AlreadyExistsException) {
-      messageKey = "user.register.email.already_exists";
-  }
+private final MessageSource messageSource;
+// 例外の種類に応じたメッセージキーを決定
+String messageKey = "user.register.generic_error";
+if (e instanceof UserException.AlreadyExistsException) {
+    messageKey = "user.register.email.already_exists";
+}
+// messages.properties からメッセージを取得
+String errorMessage = messageSource.getMessage(messageKey, null, locale);
 ```
 
 - フロントエンド (Front-end)：**#{...} 構文**
