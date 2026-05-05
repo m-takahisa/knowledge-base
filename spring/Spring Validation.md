@@ -19,12 +19,15 @@
 
 ■上部の赤い枠に表示されているエラー（グローバルエラー / すべてのエラー）
 - 「どの項目か特定できないエラー」 または 「すべてのエラーのまとめ」 が表示される。（@AssertTrue を使ったメソッドなどがこれに該当）
+  - @AssertTrue によるエラーは、Springのデフォルト設定では「グローバルエラー」ではなく、「フィールドエラー」として扱われている
 ```
 <form th:action="@{/view/tasks/{id}/update(id=*{id})}" th:object="${task}" method="post" class="col-md-6">
-    <!-- グローバルエラー（@AssertTrueなど）を表示して確認する -->
-    <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger">
+    <!-- 特定の相関チェックエラーのみ表示 -->
+    <div th:if="${#fields.hasErrors('statusDoneValid') or #fields.hasErrors('dateOrderValid')}"
+         class="alert alert-danger">
         <ul class="mb-0">
-            <li th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+            <li th:if="${#fields.hasErrors('statusDoneValid')}" th:errors="*{statusDoneValid}"></li>
+            <li th:if="${#fields.hasErrors('dateOrderValid')}" th:errors="*{dateOrderValid}"></li>
         </ul>
     </div>
 ```
